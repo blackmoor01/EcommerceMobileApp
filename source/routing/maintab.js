@@ -1,42 +1,43 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Entypo from "react-native-vector-icons/Entypo";
-import Ionicons from "react-native-vector-icons/Ionicons";
+import Ionicons  from "react-native-vector-icons/Ionicons";
+import HomeScreen from "../screens/Home";
+import CartScreen from "../screens/cart";
+import NotificationScreen from "../screens/notification";
+import ProfileScreen from "../screens/profile";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+
 
 
 const Tab = createBottomTabNavigator();
-const MainTabNavigator = () => {
+
+const MainTabNavigator = ({navigation}) => {
+
     return(
         <Tab.Navigator
-            initialRouteName={"Chats"}
             screenOptions={{
-                tabBarStyle: {background: 'whitesmoke'},
-                headerStyle: {background: 'whitesmoke'}
+                tabBarStyle: {background: 'whitesmoke', overflow:"hidden"}
             }}
         >
 
-            <Tab.Screen name={"Status"} component={NotImplementedScreen}
+            <Tab.Screen name={"Home"} component={HomeScreen}
                         options={{tabBarIcon: ({color,size}) => (
-                                <Ionicons name={"logo-whatsapp"} size={size} color={color} />) }} />
+                                <Entypo name="home" size={size} color={color} />),headerShown:false }} />
 
-            <Tab.Screen name={"Calls"} component={NotImplementedScreen}
+            <Tab.Screen name={"Cart"} component={CartScreen}
                         options={{tabBarIcon: ({color,size}) => (
-                                <Ionicons name={"call-outline"} size={size} color={color} />) }}/>
+                                <FontAwesome name="shopping-cart" size={size} color={color} />),headerShown:false }}/>
 
-            <Tab.Screen name={"Chats"} component={ChatsScreen}
-                        options={ (navigation)=>({tabBarIcon: ({color,size}) => (
-                                <Ionicons name={"ios-chat-bubbles-sharp"} size={size} color={color} />),
-                            headerRight: () =>(
-                                <Entypo onPress={()=>navigation.navigate('Contacts')} name={'new-message'} size={18} color={'royal blue'} style={{marginRght:15}} />
-                            ),
-                        })}/>
-
-            <Tab.Screen name={"Camera"} component={NotImplementedScreen}
+            <Tab.Screen name={"Notification"} component={NotificationScreen}
                         options={{tabBarIcon: ({color,size}) => (
-                                <Ionicons name={"camera-outline"} size={size} color={color} />) }}/>
+                                <Ionicons name="notifications-sharp" size={size} color={color} />),headerShown:false }}/>
 
-            <Tab.Screen name={"Settings"} component={NotImplementedScreen}
+
+
+            <Tab.Screen name={"Profile"} component={ProfileScreen}
                         options={{tabBarIcon: ({color,size}) => (
-                                <Ionicons name={"settings-outline"} size={size} color={color} />) }}/>
+                                <Ionicons name={"person"} size={size} color={color} />),headerShown:false }}/>
+
 
         </Tab.Navigator>
     )

@@ -10,6 +10,9 @@ import ShoesPage from "../screens/details/Shoes";
 import ElectronicsPage from "../screens/details/Electronics";
 import JewelryPage from "../screens/details/Jewelry";
 import SearchDetailsPage from "../screens/details/Search";
+import Shipment from "../screens/details/Shipment";
+import OrderDetails from "../screens/details/Order";
+import PaymentDetails from "../screens/details/Payment";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +30,9 @@ const MainStackNavigator = () => {
                 <Stack.Screen name={"ElectronicsPage"} component={ElectronicsPage} options={{headerShown:false}}/>
                 <Stack.Screen name={"JewelryPage"} component={JewelryPage} options={{headerShown:false}}/>
                 <Stack.Screen name={"SearchDetailsPage"} component={SearchDetailsPage} options={{headerShown:false}}/>
+                <Stack.Screen name={"ShipmentPage"} component={Shipment} options={{headerShown:false}}/>
+                <Stack.Screen name={"OrderPage"} component={OrderDetails} options={{headerShown:false}}/>
+                <Stack.Screen name={"PaymentPage"} component={PaymentDetails} options={{headerShown:false}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

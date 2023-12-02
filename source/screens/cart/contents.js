@@ -125,5 +125,4 @@ const CartContents = () => {
         </ScrollView>
     )
 };
-
 export default CartContents;

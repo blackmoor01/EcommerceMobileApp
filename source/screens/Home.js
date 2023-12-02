@@ -7,7 +7,8 @@ import {
     TextInput,
     ImageBackground,
     FlatList,
-    Pressable
+    Pressable,
+    StyleSheet
 } from 'react-native';
 import tw from 'twrnc';
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -148,6 +149,7 @@ const HomeScreen = () => {
     };
 
 
+    {/* Function helps sort the category of items you are browsing through.*/}
     const SizeList = () => {
         const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
         const sizes = [
@@ -176,6 +178,26 @@ const HomeScreen = () => {
         )
     };
 
+    {/* Highlights and dishighlights upon pressing*/}
+    const Selectables = ()=> {
+        const [selectedMinorCategoryIndex,setSelectedMinorCategoryIndex] = useState(0);
+        const selectablesText = [
+            "Popular", "View All"
+        ]
+        return(
+            <View style={styles.categoryListContainer}>
+                {selectablesText.map((minor,index)=>(
+                    <Pressable key={index} onPress={()=>setSelectedMinorCategoryIndex(index)}>
+                        <Text style={[
+                            styles.minorCategoryListText,(index === selectedMinorCategoryIndex && styles.miniMinorActiveCategoryListText )
+                        ]}>{minor}</Text>
+                    </Pressable>
+                ))}
+            </View>
+        )
+    }
+
+    {/* A function that displays the the list of popular items*/}
     const PopularList = ()=> {
         const popularLists = [
             {
@@ -233,10 +255,13 @@ const HomeScreen = () => {
                         <View style={tw `h-20 w-11/12 bg-gray-200 my-2 rounded-xl`}>
                             <View style={tw `flex-row`}>
                                 <Image source={item.Img} style={tw `h-15 w-20 rounded-xl mt-2.5 mx-2`} />
-                                <View style={tw `mt-2.5`}>
-                                    <Text style={tw `font-extrabold text-lg`}>{item.Txt1}</Text>
-                                    <Text>{item.Txt2}</Text>
-                                    <Text style={tw `font-extrabold text-lg`}>{item.Txt3}</Text>
+                                <View style={tw `flex-row justify-between`}>
+                                    <View style={tw `mt-2.5`}>
+                                        <Text style={tw `font-extrabold text-lg`}>{item.Txt1}</Text>
+                                        <Text>{item.Txt2}</Text>
+                                        <Text style={tw `font-extrabold text-lg`}>{item.Txt3}</Text>
+                                    </View>
+                                    <Text style={tw `font-extrabold text-sm absolute bottom-0 left-35 mb-2`}>$740.00</Text>
                                 </View>
                             </View>
                         </View>
@@ -329,11 +354,13 @@ const HomeScreen = () => {
                     <SizeList/>
                 </View>
 
+                {/*Function calls*/}
                 <View style={tw `mt-5`}>
                    <ImageCards/>
                     <MinorImageCards/>
                     <MinorImageCards/>
                     <MinorImageCards/>
+                    <Selectables/>
                     <PopularList/>
                 </View>
 
@@ -341,6 +368,24 @@ const HomeScreen = () => {
         </ScrollView>
     )
 };
+
+const styles = StyleSheet.create({
+    categoryListContainer:{
+        marginTop:40,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingHorizontal:10,
+    },
+    minorCategoryListText:{
+        padding:10,
+        fontWeight:300,
+    },
+
+    miniMinorActiveCategoryListText:{
+        fontWeight:700,
+        fontSize:18
+    },
+})
 
 export default HomeScreen;
 const minorActiveCategoryListText = tw`font-bold text-lg bg-black text-white`

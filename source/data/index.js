@@ -13,4 +13,42 @@ export const RatingStars = ()=>{
             <Entypo name="star" size={18} color="orange" />
         </View>
     )
+};
+
+export const FourRatingStars = () => {
+    return(
+        <View style={tw `flex-row  mt-3`}>
+            <Entypo name="star" size={18} color="orange" />
+            <Entypo name="star" size={18} color="orange" />
+            <Entypo name="star" size={18} color="orange" />
+            <Entypo name="star" size={18} color="orange" />
+        </View>
+    )
+}
+
+export const ThreeRatingStars = () => {
+    return(
+        <View style={tw `flex-row  mt-3`}>
+            <Entypo name="star" size={18} color="orange" />
+            <Entypo name="star" size={18} color="orange" />
+            <Entypo name="star" size={18} color="orange" />
+        </View>
+    )
+}
+
+export const TwoRatingStars = () => {
+    return(
+        <View style={tw `flex-row  mt-3`}>
+            <Entypo name="star" size={18} color="orange" />
+            <Entypo name="star" size={18} color="orange" />
+        </View>
+    )
+}
+
+export const OneRatingStar = () => {
+    return(
+        <View style={tw `flex-row  mt-3`}>
+            <Entypo name="star" size={18} color="orange" />
+        </View>
+    )
 }

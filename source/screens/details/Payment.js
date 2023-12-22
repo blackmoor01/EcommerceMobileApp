@@ -30,7 +30,7 @@ const PaymentDetails = () => {
             },
             {
                 Txt1:"The Pullover",
-                Txt2:"Vado Odelle Dress",
+                Txt2:"Kelvinson's Fashion",
                 Txt3:"$150.00"
             }
         ]

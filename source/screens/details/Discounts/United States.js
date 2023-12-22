@@ -1,4 +1,4 @@
-import {View, Text, ScrollView, TouchableOpacity, FlatList} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity, FlatList, ImageBackground} from 'react-native';
 import tw from "twrnc";
 import {useNavigation} from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -7,40 +7,46 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 const UnitedStatesDiscounts = () => {
     const navigation = useNavigation();
 
+    const handleCategorySelectionPage = () =>{
+        navigation.navigate("CategorySelectionPage")
+    }
+
     const DiscountOptions = () => {
         const discountLists = [
             {
-
+                Img:require("../../../../assets/big-mama-plus-size-african-american-model-black-beret-leather-skirt-posed-outdoor.jpg")
             },
             {
-
+                Img:require("../../../../assets/big-mama-plus-size-african-american-model-black-beret-leather-skirt-posed-outdoor.jpg")
             },
             {
-
+                Img:require("../../../../assets/big-mama-plus-size-african-american-model-black-beret-leather-skirt-posed-outdoor.jpg")
             },
             {
-
+                Img:require("../../../../assets/big-mama-plus-size-african-american-model-black-beret-leather-skirt-posed-outdoor.jpg")
             },
             {
-
+                Img:require("../../../../assets/big-mama-plus-size-african-american-model-black-beret-leather-skirt-posed-outdoor.jpg")
             },
             {
-
+                Img:require("../../../../assets/big-mama-plus-size-african-american-model-black-beret-leather-skirt-posed-outdoor.jpg")
             },
             {
-
+                Img:require("../../../../assets/big-mama-plus-size-african-american-model-black-beret-leather-skirt-posed-outdoor.jpg")
             },
             {
-
+                Img:require("../../../../assets/big-mama-plus-size-african-american-model-black-beret-leather-skirt-posed-outdoor.jpg")
             }
         ]
         return(
            <FlatList data={discountLists} showsVerticalScrollIndicator={false} renderItem={({item})=>(
-               <View style={tw `items-center`}>
-                   <View style={tw `h-40 w-11/12 bg-gray-300 rounded-xl mb-3`}>
-
+               <TouchableOpacity onPress={handleCategorySelectionPage}>
+                   <View style={tw `items-center`}>
+                       <View style={tw `h-40 w-11/12 bg-gray-300 rounded-xl mb-3`}>
+                           <ImageBackground source={item.Img} style={tw`h-40 w-12/12`} resizeMode={"contain"}/>
+                       </View>
                    </View>
-               </View>
+               </TouchableOpacity>
            )}/>
         )
     }

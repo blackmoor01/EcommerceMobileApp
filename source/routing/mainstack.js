@@ -23,6 +23,8 @@ import BangladeshDiscounts from "../screens/details/Discounts/Bangladesh";
 import GermanyDiscounts from "../screens/details/Discounts/Germany";
 import PortugalDiscounts from "../screens/details/Discounts/Portugal";
 import ZimbabweDiscounts from "../screens/details/Discounts/Zimbabwe";
+import CategorySelect from "../screens/details/CategorySelect";
+import Location from "../screens/details/Location";
 
 const Stack = createNativeStackNavigator();
 
@@ -53,6 +55,8 @@ const MainStackNavigator = () => {
                 <Stack.Screen name={"GermanyDiscountsPage"} component={GermanyDiscounts} options={{headerShown:false}}/>
                 <Stack.Screen name={"PortugalDiscountsPage"} component={PortugalDiscounts} options={{headerShown:false}}/>
                 <Stack.Screen name={"ZimbabweDiscountsPage"} component={ZimbabweDiscounts} options={{headerShown:false}}/>
+                <Stack.Screen name={"CategorySelectionPage"} component={CategorySelect} options={{headerShown:false}}/>
+                <Stack.Screen name={"LocationPage"} component={Location} options={{headerShown:false}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
